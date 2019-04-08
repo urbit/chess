@@ -1,0 +1,31 @@
+.form-mve .input-group-focused,
+.form-mve .input-group-focused input,
+.form-mve .input-group-focused textarea {
+  background-color: #F6F6F6;
+}
+
+.form-mve .input-group-error-message {
+  display: none;
+}
+
+.form-mve .input-group-error * {
+  color: #EE3124;
+}
+
+.form-mve .input-group-error input::placeholder {
+  color: #EE3124;
+  opacity: .3;
+}
+
+.form-mve .input-group-error .input-group-error-message {
+  display: block;
+}
+
+.form-mve .btn-text {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+.form-mve .btn-text:focus span:nth-child(1) {
+  text-decoration: underline;
+}

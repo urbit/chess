@@ -1,0 +1,24 @@
+/***
+  Inbox
+***/
+
+.inbox-page img {
+  width: 100%;
+}
+
+.inbox-page .invite .btn {
+  float: right;
+}
+
+.inbox-page .collection-preview h1:nth-child(1) {
+  display: none;
+}
+
+.inbox-link {
+  font-weight: 500;
+  color: #777;
+}
+
+.inbox-link-active {
+  color: black;
+}

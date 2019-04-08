@@ -1,0 +1,133 @@
+input.collection-title, textarea.collection-post-edit {
+  border: 1px solid #B1B2B3;
+}
+
+input.collection-title:focus, textarea.collection-post-edit:focus, .collection-value-filled {
+  border-color: black !important;
+}
+
+input.collection-title {
+  padding: 10px 16px;
+}
+
+textarea.collection-post-edit
+{
+  height: 352px;
+  background: white;
+  resize: none;
+  padding: 4rem;
+}
+
+textarea.comment-edit
+{
+  border: none;
+  resize: none;
+  padding: 2rem;
+  height: 24rem;
+  width: calc(100% - 26px);
+  border: 1px solid #aaa;
+}
+
+.create-comment .usership
+{
+  color: #000;
+}
+
+.create-comment button
+{
+  margin-left: calc(2rem + 18px);
+}
+
+div.coll-title
+{
+  font-size: 6rem;
+}
+div.mod
+{
+  font-size: 6rem;
+}
+
+.collection-index li.forum .meta-cont > div
+{
+  float: left;
+}
+
+.collection-index li.notes .da {
+  position: absolute;
+  margin-left: -12rem;
+  margin-top: 1rem;
+}
+
+.collection-index .note-uuid {
+  font-weight: inherit;
+}
+
+.collection-index img {
+  width: 100%;
+}
+
+.collection-index ul {
+  list-style-type: none;
+}
+
+.post img {
+  width: 100%;
+}
+
+.post #edit
+{
+  display: none;
+}
+
+/**/
+
+.collection-date {
+  font-family: "Source Code Pro", "Roboto mono", "Courier New", monospace;
+  font-weight: 300;
+  font-size: 3rem;
+  line-height: 5rem;
+}
+
+.collection-title {
+  position: relative;
+}
+
+.collection-post::before, .collection-title::before {
+  content: "";
+  background-color: #6FDC74;
+  border-radius: 100%;
+
+  width: 4px;
+  height: 4px;
+
+  position: absolute;
+}
+
+.collection-post::before {
+  margin-top: 30px;
+  margin-left: -18px;
+}
+
+.collection-title::before {
+  margin-top: 22px;
+  margin-left: -10rem;
+}
+
+.collection-comment-avatar {
+  position: absolute;
+
+  left: -12rem;
+  top: 7px;
+
+  width: 32px;
+  height: 32px;
+}
+
+.collection-post-actions {
+  display: flex;
+  align-items: center;
+}
+
+.collection-comment-content {
+  margin-left: 26px;
+}

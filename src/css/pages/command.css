@@ -1,0 +1,86 @@
+/***
+  Command Menu
+***/
+
+.command-page {
+  padding-top: 33px;
+  position: relative;
+}
+
+.command-row {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  margin-bottom: 27px;
+}
+
+.command-options, .command-input-placeholder-wrapper {
+  margin-left: -9px;
+  width: calc(100% + 9px);
+}
+
+input.command-menu-input, .command-input-placeholder-wrapper {
+  position: relative;
+  border: none;
+  outline: none;
+  height: 48px;
+
+  font-size: 20px;
+  line-height: 48px;
+  font-family: "Source Code Pro", "Roboto mono", "Courier New", monospace;
+}
+
+input.command-menu-input {
+  background-color: transparent;
+  z-index: 2;
+  padding: 0 9px;
+  font-weight: 500;
+}
+
+input.command-menu-input[disabled] {
+  opacity: 1;
+}
+
+.command-input-placeholder-wrapper {
+  background-color: #F6F6F6;
+}
+
+.command-input-placeholder-wrapper[disabled] {
+  background-color: transparent;
+}
+
+.command-input-placeholder-wrapper::after {
+  content: attr(data-placeholder);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+
+  padding: 0 9px;
+  color: #9B9B9B;
+  font-weight: 400;
+}
+
+.command-item {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  padding-left: 9px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.command-item-selected {
+  background-color: #F6F6F6;
+  font-weight: 600;
+}
+
+.command-help a {
+  display: block;
+}

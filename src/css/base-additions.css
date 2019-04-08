@@ -1,0 +1,308 @@
+@import 'icons.css';
+
+body {
+  overflow: overlay; /* Prevents scroll bar from affecting width on Webkit/Blink browsers */
+}
+
+/* If <a> elements don't have hrefs, there's no pointer */
+a {
+  cursor: pointer;
+}
+
+a.vanilla {
+  text-decoration: none;
+}
+
+
+ul.vanilla {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul.vanilla li {
+  padding: 0;
+}
+
+form {
+  margin: 0;
+}
+
+[class*=col-] {
+  margin-bottom: 0;
+}
+
+/***
+  Shapes
+***/
+
+.circle {
+  padding: 0;
+  border-width: 8px;
+  height: 30px;
+  width: 30px;
+
+  position: relative;
+  top: 3px;
+}
+
+/***
+  Typography
+***/
+
+body, p, input[type="text"], textarea, .text-body {
+  font-size: 14px;
+  line-height: 24px;
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: #000;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, button, .btn, .text-heading {
+  font-family: "Work Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+label, .text-mono, .text-mono-bold, .text-mono-light, .text-timestamp, .text-host-breadcrumb, .command-item {
+  font-family: "Source Code Pro", "Roboto mono", "Courier New", monospace;
+}
+
+h1, .h1 {
+  font-size: 6rem; /* 24px */
+  line-height: 8rem; /* 32px */
+}
+
+h2, .h2 {
+  font-size: 5rem; /* 20px */
+  line-height: 6rem; /* 24px */
+}
+
+/*
+  TODO:
+    - Making this !important because .h3 should override input[type="text"]
+    - Probably ways to avoid this if we want to avoid !important
+*/
+
+h3, .h3 {
+  font-size: 4rem !important; /* 16px */
+  line-height: 5rem !important; /* 20px */
+}
+
+h4 {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.text-small, .text-small * {
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.text-squat, .text-squat * {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.text-gray, .text-gray * {
+  color: #9B9B9B;
+}
+
+.text-black, .text-black * {
+  color: black !important;
+}
+
+.text-red, .text-red * {
+  color: #EE3124;
+}
+
+.text-timestamp {
+  font-size: 9px;
+  font-weight: 300;
+  line-height: 16px;
+}
+
+.text-host-breadcrumb {
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 20px;
+  text-decoration: none;
+}
+
+/***
+  Utils
+***/
+
+.flex {
+  display: flex;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.align-start {
+  align-items: flex-start;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-start {
+  justify-content: flex-start !important;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-between {
+  justify-content: between;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.hide {
+  display: none;
+}
+
+.relative {
+  position: relative;
+}
+
+.inline {
+  display: inline;
+}
+
+.block {
+  display: block;
+}
+
+/***
+  Forms
+***/
+
+input[type="text"], textarea, label {
+  font-size: 14px;
+  line-height: 24px;
+
+  border: none;
+  outline: none;
+  padding: 0;
+}
+
+input[disabled], label[disabled], select[disabled], textarea[disabled], button[disabled], .select-dropdown[disabled] {
+  opacity: .4;
+  border-color: #aaa;
+}
+
+input.input-sm {
+  font-size: 3rem;
+  padding: 6px;
+  border-width: 1px;
+}
+
+label {
+  margin-bottom: 2rem;
+}
+
+.input-group {
+  padding: 10px;
+}
+
+.input-group label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.btn {
+  width: 156px;
+  padding: 8px 0;
+  margin-bottom: 0;
+  display: inline-block;
+  position: relative;
+
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+  text-align: center;
+
+  color: white;
+}
+
+.btn-sm {
+  font-size: 14px;
+  line-height: 20px;
+  padding: 2px 0;
+  height: 24px;
+}
+
+.btn-icon {
+  width: 40px;
+}
+
+.btn:focus {
+  text-decoration: underline;
+}
+
+.btn[disabled] {
+  background-color: #C4C4C4;
+  color: white;
+  opacity: 1;
+}
+
+.btn-default {
+  background-color: #E6E6E6;
+  color: black;
+}
+
+.btn-primary {
+  background-color: #4330FC;
+}
+
+.btn-secondary {
+  background-color: #6FDC74;
+  color: black;
+}
+
+.btn-tertiary {
+  background-color: #EE3124;
+}
+
+.btn-spinner {
+  position: absolute;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  top: 12px;
+}
+
+.btn-spinner::after {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  bottom: 0;
+  content: "◠";
+  animation: a linear 1s infinite;
+  font-size: 10px;
+  line-height: 10px;
+}
+
+.btn-spinner-lg {
+  font-size: 32px;
+  font-weight: bold;
+  color: #4330FC;
+}
+
+.btn-text {
+  padding: 0;
+  background-color: inherit;
+}

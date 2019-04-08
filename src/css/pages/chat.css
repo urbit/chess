@@ -1,0 +1,128 @@
+/***
+  Layout
+***/
+
+.chat-container {
+  height: calc(100% - 106px);
+}
+
+.chat-container-inner, .chat-container-inner .container {
+  height: 100%;
+}
+
+.flex-chat-scrollpane {
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.flex-chat-input {
+  flex-basis: 56px;
+}
+
+.flex-chat-input .chat-sigil {
+  margin-top: 12px;
+}
+
+/***
+  Styles
+***/
+
+.chat-container img {
+  width: 100%;
+}
+
+textarea.chat-input-field {
+  height: 56px;
+  padding: 8px 10px;
+
+  border: 1px solid #E6E6E6;
+  border-radius: 1px;
+
+  resize: none;
+}
+
+.chat-input-field:placeholder {
+  color: #B0B0B0;
+}
+
+.chat-sep {
+  text-align: center;
+  font-weight: 600;
+  margin: 4rem;
+}
+
+.chat-msg-pending, .chat-msg-pending * {
+  color: #aaa;
+}
+
+.chat-msg-app, .chat-msg-app * {
+  color: #9B9B9B;
+}
+
+.chat-sigil {
+  margin-right: 2px;
+}
+
+.cir-status {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 100%;
+
+  display: inline-block;
+  position: relative;
+  bottom: 1px;
+}
+
+.cir-green {
+  background-color: #8EEE9C;
+}
+
+.cir-grey {
+  background-color: #B0B0B0;
+}
+
+.cir-black {
+  background-color: #B0B0B0;
+}
+
+.cir-red {
+  background-color: #FF4444;
+}
+
+/***
+  Scrollpane
+***/
+
+.chat-scrollpane-view {
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden !important;
+  padding-bottom: 15px;
+}
+
+.chat-scrollpane-view > * {
+  flex-shrink: 0;
+}
+
+.chat-scrollpane-view > :first-child {
+    margin-top: auto !important;
+    /* use !important to prevent breakage from child margin settings */
+}
+
+.scrollpane {
+  height: 600px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: flex-end; */
+}
+
+.scrollpane > * {
+  flex-shrink: 0;
+}
+
+.scrollpane > :first-child {
+    margin-top: auto !important;
+    /* use !important to prevent breakage from child margin settings */
+}

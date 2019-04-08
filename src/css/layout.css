@@ -1,0 +1,187 @@
+#root {
+  height: 100%;
+  padding-bottom: 20px;
+}
+
+.header-container {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  position: relative;
+}
+
+.header-mainrow {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.header-carpet, .header-breadcrumbs {
+  height: 20px;
+}
+
+.header-title, .header-title * {
+  text-decoration: none;
+  font-weight: 600;
+  margin: 0;
+}
+
+.header-link {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  font-family: "Work Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+.header-pending-panel {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 8px 16px;
+  background: black;
+  color: white;
+}
+
+.header-notifications {
+  width: 14px;
+  height: 14px;
+  padding-top: 2px;
+  margin-right: 4px;
+
+  border-radius: 100%;
+  background-color: #C4C4C4;
+
+  color: white;
+  font-size: 9px;
+  line-height: 9px;
+  text-align: center;
+
+  transition: background-color 1s;
+}
+
+.header-notifications-flash {
+  background-color: #6FDC74;
+  transition: background-color 1s;
+}
+
+.page-status {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+
+  border-radius: 100%;
+  height: 18px;
+  width: 18px;
+
+  background-color: #999;
+}
+
+.header-pending-panel .page-status {
+  position: relative;
+  right: 7px;
+  top: 1px;
+}
+
+.page-status::after {
+  content: "";
+  background-color: #ccc;
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  border-radius: 100%;
+  clip: rect(0, 18px, 18px, 9px);
+
+  animation: spin 2s linear infinite;
+}
+
+.page-status-primary {
+  background-color: #4330FC;
+}
+
+.page-status-primary::after {
+  background-color: #d8d5fe;
+}
+
+.page-status-secondary {
+  background-color: #6fdc74;
+}
+
+.page-status-secondary::after {
+  background-color: #e2f8e3;
+}
+
+.page-status-tertiary {
+  background-color: #EE3124;
+  cursor: pointer;
+}
+
+.page-status-quaternary {
+  background-color: #FD7A31;
+}
+
+.page-status-quaternary::after {
+  background-color: #FEBC98;
+}
+
+/*
+  Grid?
+
+  We're kind of using this as a grid. More explanation later.
+*/
+
+.row {
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+}
+
+.flex-col-1 {
+  flex-basis: 80px;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.flex-col-2 {
+  flex-basis: 160px;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.flex-col-3 {
+  flex-basis: 240px;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.flex-col-4 {
+  flex-basis: 320px;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.flex-col-5 {
+  flex-basis: 400px;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.flex-col-6 {
+  flex-basis: 480px;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.flex-offset-1 {
+  margin-left: 80px;
+}
+
+.flex-offset-2 {
+  margin-left: 160px;
+}
+
+.flex-col-x {
+  flex-basis: 0;
+  flex-grow: 1;
+
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}

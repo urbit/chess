@@ -1,0 +1,22 @@
+/***
+  Profile
+***/
+
+.profile-shipname {
+  display: flex;
+  align-items: center;
+
+  font-size: 28px;
+  font-weight: 600;
+  height: 64px;
+  font-family: "Source Code Pro", "Roboto mono", "Courier New", monospace;
+}
+
+.profile-message-btn {
+  background: white;
+  display: inline-block;
+}
+
+.profile-qr-desc {
+  max-width: 256px;
+}
