@@ -166,7 +166,10 @@
       ~
     %+  turn  (prey:pubsub:userlib /game/[(scot %p shp.+.com)]/[(scot %da unix-da)] bol)
     |=  [=bone ^]
-    [bone %diff %json [%o newgameobj]]
+    =/  output
+      %+  frond:enjs  %game
+      :-  %o  newgameobj
+    [bone %diff %json output]
   :-  (weld pokenew newmoves)
   %=  this
     sta  (~(put by sta) shp.+.com newgame)

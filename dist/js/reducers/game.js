@@ -12,7 +12,9 @@ class GameReducer {
       if (report === null) {
         //  no-op
       } else if (type === "game") {
+        console.log(game);
         game = this.reportGame(report, game);
+        console.log(report, game);
       }
     });
 
@@ -20,11 +22,7 @@ class GameReducer {
   }
 
   reportGame(report, game) {
-    return {
-      ship: report.shp,
-      gameid: report.gid,
-      position: report.pos
-    };
+    return report;
   }
 }
 

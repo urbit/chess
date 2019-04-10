@@ -22,7 +22,7 @@ export default class Game extends Component {
   componentDidMount() {
     var cfg = {
       draggable: true,
-      dropOffBoard: 'snapback', // this is the default
+      dropOffBoard: 'snapback',
       position: 'start',
       onDragStart: this.onDragStart.bind(this),
       onDrop: this.onDrop.bind(this),
@@ -34,15 +34,15 @@ export default class Game extends Component {
   }
 
   componentDidUpdate(a, b, c) {
-    this.board.position(event.fen);
+    this.board.position(this.props.game.fen);
     if (event.fen !== "") {
-      this.game = new Chess(event.fen);
+      this.game = new Chess(this.props.game.fen);
     } else {
       this.game = new Chess();
     }
 
-    this.board.orientation(event.orientation);
-    this.orientation = event.orientation;
+    this.board.orientation(this.props.game.orientation);
+    this.orientation = this.props.game.orientation;
   }
 
   onDragStart(source, piece, position, ori) {
@@ -81,26 +81,19 @@ export default class Game extends Component {
     this.didIMove = false;
     let gid = Math.trunc(daToDate(this.gameId).getTime() / 1000);
 
-    let fen = this.game.fen(); 
+    let fen = this.game.fen();
     api.chess({
       pos: { shp: this.oShip, gid: gid, pos: fen }
     });
   }
 
   render() {
-    /*if ((this.game.turn() === "b" && this.orientation === "black") ||
-      this.game.turn() === "w" && this.orientation === "white") {
-    
-    } else {
-    
-    }*/
-
     return (
-      React.createElement('div', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 99}}
-      , React.createElement('div', { id: "header", __self: this, __source: {fileName: _jsxFileName, lineNumber: 100}}
-        , React.createElement('a', { href: "/~chess", __self: this, __source: {fileName: _jsxFileName, lineNumber: 101}}, "Back")
+      React.createElement('div', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 92}}
+      , React.createElement('div', { id: "header", __self: this, __source: {fileName: _jsxFileName, lineNumber: 93}}
+        , React.createElement('a', { href: "/~chess", __self: this, __source: {fileName: _jsxFileName, lineNumber: 94}}, "Back")
       )
-      , React.createElement('div', { id: "board", style: { width: "400px" }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 103}})
+      , React.createElement('div', { id: "board", style: { width: "400px" }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 96}})
     )
     );
   }
