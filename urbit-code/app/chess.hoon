@@ -71,7 +71,7 @@
     =/  asd  ~(tap in ~(key by (~(got by sta) a)))
     [a asd]
   =/  output
-    %+  frond:enjs  %games
+    %+  frond:enjs  %list
     :-  %a
     %+  turn  pairpda
       |=  [shp=@p lis=(list @da)]
@@ -97,8 +97,10 @@
     fen+s+fen.u.agame
     orientation+s+ori.u.agame
   ==
-  :_  this
-  [ost.bol %diff %json [%o obj]]~
+  =/  output
+    %+  frond:enjs  %game
+    :-  %o  obj
+  [[ost.bol %diff %json output]~ this]
 ::
 ++  poke-chess-command
   |=  com=command
