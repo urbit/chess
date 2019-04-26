@@ -2,6 +2,16 @@ import React, { Component } from 'react';
 import { subscription } from '/subscription';
 import { api } from '/lib/api';
 
+const deSig = (str) => {
+  if (str.length === 0) {
+    return str;
+  } else if (str[0] === '~') {
+    return str.substr(1);
+  } else {
+    return str;
+  }
+};
+
 export default class List extends Component {
 
   constructor(props) {
@@ -46,7 +56,7 @@ export default class List extends Component {
   createGame() {
     api.chess({
       new: {
-        shp: this.state.shipName,
+        shp: deSig(this.state.shipName),
         gid: Math.trunc(new Date().getTime() / 1000),
         ori: Math.random() > 0.5 ? 'white' : 'black'
       }

@@ -66,26 +66,6 @@
     |=  dat=@da
     [%s (crip (scow %da dat))]
 ::
-++  peer-list
-  |=  [pax=path]
-  ^-  (quip move _this)
-  =/  pairpda  %+  turn  ~(tap in all)
-    |=  a=@p
-    ^-  [@p (list @da)]
-    =/  asd  ~(tap in ~(key by (~(got by sta) a)))
-    [a asd]
-  =/  output
-    %+  frond:enjs  %list
-    :-  %a
-    %+  turn  pairpda
-      |=  [shp=@p lis=(list @da)]
-      ^-  json
-      %-  pairs:enjs
-      :~  [%ship (ship:enjs shp)]
-          [%dates (list-date-to-json lis)]
-      ==
-  [[ost.bol %diff %json output]~ this]
-::
 ++  peer-game
   |=  [pax=path]
   ^-  (quip move _this)
@@ -106,6 +86,11 @@
     :-  %o  obj
   [[ost.bol %diff %json output]~ this]
 ::
+++  peer-list
+  |=  [pax=path]
+  ^-  (quip move _this)
+  [[ost.bol %diff %json (create-json-list sta all)]~ this]
+::
 ++  poke-chess-command
   |=  com=command
   ^-  (quip move _this)
@@ -121,29 +106,55 @@
   |=  com=command
   ^-  (quip move _this)
   ?-  -.com  %pos  !!  %new
-  =/  allwshp  (~(get by sta) shp.+.com)
-  =/  unix-da  (from-unix:chrono:userlib gid.+.com)
-  =/  pokenew  ?:  =(src.bol our.bol)
-    ?:  =(ori.+.com 'white')
-      =/  newcom   com(shp our.bol, ori 'black')
-      [ost.bol %poke /n [shp.+.com %chess] [%chess-command newcom]]~
-    =/  newcom  com(shp our.bol, ori 'white')
-    [ost.bol %poke /n [shp.+.com %chess] [%chess-command newcom]]~
-  ~  
-  ?~  allwshp
-    =/  mapnewgame
-      (~(put by *(map @da game)) unix-da ['' ori.+.com])
-    :-  pokenew
-    %=  this
-      sta  (~(put by sta) shp.+.com mapnewgame)
-      all  (~(put in all) shp.+.com)
-    ==
-  =/  mapnewgame  (~(put by u.allwshp) unix-da ['' ori.+.com])
-  :-  pokenew
-  %=  this
-    sta  (~(put by sta) shp.+.com mapnewgame)
+    =/  allwshp  (~(get by sta) shp.+.com)
+    =/  unix-da  (from-unix:chrono:userlib gid.+.com)
+    =/  pokenew
+      ?:  =(src.bol our.bol)
+        ?:  =(ori.+.com 'white')
+          =/  newcom   com(shp our.bol, ori 'black')
+          [ost.bol %poke /n [shp.+.com %chess] [%chess-command newcom]]~
+        =/  newcom  com(shp our.bol, ori 'white')
+        [ost.bol %poke /n [shp.+.com %chess] [%chess-command newcom]]~
+      ~  
+    ?~  allwshp
+      =/  mapnewgame
+        (~(put by *(map @da game)) unix-da ['' ori.+.com])
+      =/  newsta  (~(put by sta) shp.+.com mapnewgame)
+      =/  newall  (~(put in all) shp.+.com)
+      :-  (weld pokenew (send-list-diff (create-json-list newsta newall)))
+      %=  this
+        sta  newsta
+        all  newall
+      ==
+    =/  mapnewgame  (~(put by u.allwshp) unix-da ['' ori.+.com])
+    =/  newsta  (~(put by sta) shp.+.com mapnewgame)
+    :-  (weld pokenew (send-list-diff (create-json-list newsta all)))
+    this(sta newsta)
   ==
-  ==
+::
+++  create-json-list
+  |=  [sta=(map @p (map @da game)) all=(set @p)]
+  ^-  json
+  =/  pairpda  %+  turn  ~(tap in all)
+    |=  a=@p
+    ^-  [@p (list @da)]
+    =/  asd  ~(tap in ~(key by (~(got by sta) a)))
+    [a asd]
+  %+  frond:enjs  %list
+    :-  %a
+    %+  turn  pairpda
+      |=  [shp=@p lis=(list @da)]
+      ^-  json
+      %-  pairs:enjs
+      :~  [%ship (ship:enjs shp)]
+          [%dates (list-date-to-json lis)]
+      ==
+++  send-list-diff
+  |=  jon=json
+  ^-  (list move)
+  %+  turn  (prey:pubsub:userlib /list bol)
+  |=  [=bone ^]
+  [bone %diff %json jon]
 ::
 ++  handle-position-command
   |=  com=command

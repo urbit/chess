@@ -42918,6 +42918,16 @@
             }
 
             const _jsxFileName = "/Users/logan/Dev/apps/chess/src/js/components/list.js";
+            const deSig = (str) => {
+              if (str.length === 0) {
+                return str;
+              } else if (str[0] === '~') {
+                return str.substr(1);
+              } else {
+                return str;
+              }
+            };
+
             class List extends react_1 {
 
               constructor(props) {
@@ -42940,19 +42950,19 @@
                   let item = this.props.list[i];
                   item.dates.forEach((da) => {
                     list.push(
-                      react.createElement('p', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 27}}
-                        , react.createElement('a', { href: `/~chess/${item.ship}/${da}`, __self: this, __source: {fileName: _jsxFileName, lineNumber: 28}}, `${item.ship} - ${da}`)
+                      react.createElement('p', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 37}}
+                        , react.createElement('a', { href: `/~chess/${item.ship}/${da}`, __self: this, __source: {fileName: _jsxFileName, lineNumber: 38}}, `${item.ship} - ${da}`)
                       )
                     );
                   });
                 }
 
                 return (
-                  react.createElement('div', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 35}}
-                    , react.createElement('p', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 36}}, "Ship: " )
-                    , react.createElement('input', { type: "text", value: this.state.shipName, onChange: this.handleInput.bind(this), __self: this, __source: {fileName: _jsxFileName, lineNumber: 37}} )
-                    , react.createElement('button', { onClick: this.createGame.bind(this), __self: this, __source: {fileName: _jsxFileName, lineNumber: 38}}, "Create")
-                    , react.createElement('div', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 39}}
+                  react.createElement('div', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 45}}
+                    , react.createElement('p', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 46}}, "Ship: " )
+                    , react.createElement('input', { type: "text", value: this.state.shipName, onChange: this.handleInput.bind(this), __self: this, __source: {fileName: _jsxFileName, lineNumber: 47}} )
+                    , react.createElement('button', { onClick: this.createGame.bind(this), __self: this, __source: {fileName: _jsxFileName, lineNumber: 48}}, "Create")
+                    , react.createElement('div', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 49}}
                       , list
                     )
                   )
@@ -42962,7 +42972,7 @@
               createGame() {
                 api.chess({
                   new: {
-                    shp: this.state.shipName,
+                    shp: deSig(this.state.shipName),
                     gid: Math.trunc(new Date().getTime() / 1000),
                     ori: Math.random() > 0.5 ? 'white' : 'black'
                   }
