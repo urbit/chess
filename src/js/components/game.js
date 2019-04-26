@@ -35,24 +35,31 @@ export default class Game extends Component {
 
   componentDidUpdate(a, b, c) {
     this.board.position(this.props.game.fen);
-    if (event.fen !== "") {
+    if (this.props.game.fen !== "") {
       this.game = new Chess(this.props.game.fen);
     } else {
       this.game = new Chess();
     }
+
+    console.log("stuff");
 
     this.board.orientation(this.props.game.orientation);
     this.orientation = this.props.game.orientation;
   }
 
   onDragStart(source, piece, position, ori) {
+    console.log('ayy');
+    console.log(source, piece, position, ori, this.orientation);
     if (this.orientation === "white" && piece.search(/^b/) !== -1) {
+      console.log('1');
       return false;
     } else if (this.orientation === "black" && piece.search(/^w/) !== -1) {
+      console.log('2');
       return false;
     }
 
     if (this.game.in_checkmate() === true || this.game.in_draw() === true) {
+      console.log('3');
       return false;
     }
   }

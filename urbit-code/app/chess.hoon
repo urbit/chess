@@ -8,6 +8,10 @@
   /^  octs
   /;  as-octs:mimes:html
   /:  /===/app/chess/js/index  /js/
+/=  tile-js
+  /^  octs
+  /;  as-octs:mimes:html
+  /:  /===/app/chess/js/tile  /js/
 /=  index-css
   /^  octs
   /;  as-octs:mimes:html
@@ -199,5 +203,7 @@
     [[ost.bol %http-response (js-response:app index-js)]~ this]
   ?:  =(name 'chessboard-css')
     [[ost.bol %http-response (css-response:app index-css)]~ this]
+  ?:  =(name 'tile')
+    [[ost.bol %http-response (js-response:app tile-js)]~ this]
   [[ost.bol %http-response (html-response:app index-html)]~ this]
 --

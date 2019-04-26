@@ -1,4 +1,4 @@
-const _jsxFileName = "/Users/logan/Dev/chess/src/js/app.js";import React, { Component } from 'react';
+const _jsxFileName = "/Users/logan/Dev/apps/chess/src/js/app.js";import React, { Component } from 'react';
 import { BrowserRouter, Route } from "react-router-dom";
 
 import { store } from '/store';
@@ -20,7 +20,7 @@ export default class App extends Component {
   render() {
     return (
        React.createElement(BrowserRouter, {__self: this, __source: {fileName: _jsxFileName, lineNumber: 22}}
-        , React.createElement('div', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 23}}
+         , React.createElement('div', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 23}}
           , React.createElement(Route, { exact: true, path: "/~chess", 
             render:  (props) => {
               return React.createElement(List, { ...props, list: this.state.list, __self: this, __source: {fileName: _jsxFileName, lineNumber: 26}} )
@@ -35,3 +35,4 @@ export default class App extends Component {
   }
 }
 
+window.app = App;

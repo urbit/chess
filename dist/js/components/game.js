@@ -1,4 +1,4 @@
-const _jsxFileName = "/Users/logan/Dev/chess/src/js/components/game.js";import React, { Component } from 'react';
+const _jsxFileName = "/Users/logan/Dev/apps/chess/src/js/components/game.js";import React, { Component } from 'react';
 import { Chess } from 'chess.js';
 
 import { subscription } from '/subscription';
@@ -35,24 +35,31 @@ export default class Game extends Component {
 
   componentDidUpdate(a, b, c) {
     this.board.position(this.props.game.fen);
-    if (event.fen !== "") {
+    if (this.props.game.fen !== "") {
       this.game = new Chess(this.props.game.fen);
     } else {
       this.game = new Chess();
     }
+
+    console.log("stuff");
 
     this.board.orientation(this.props.game.orientation);
     this.orientation = this.props.game.orientation;
   }
 
   onDragStart(source, piece, position, ori) {
+    console.log('ayy');
+    console.log(source, piece, position, ori, this.orientation);
     if (this.orientation === "white" && piece.search(/^b/) !== -1) {
+      console.log('1');
       return false;
     } else if (this.orientation === "black" && piece.search(/^w/) !== -1) {
+      console.log('2');
       return false;
     }
 
     if (this.game.in_checkmate() === true || this.game.in_draw() === true) {
+      console.log('3');
       return false;
     }
   }
@@ -89,11 +96,11 @@ export default class Game extends Component {
 
   render() {
     return (
-      React.createElement('div', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 92}}
-      , React.createElement('div', { id: "header", __self: this, __source: {fileName: _jsxFileName, lineNumber: 93}}
-        , React.createElement('a', { href: "/~chess", __self: this, __source: {fileName: _jsxFileName, lineNumber: 94}}, "Back")
+      React.createElement('div', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 99}}
+      , React.createElement('div', { id: "header", __self: this, __source: {fileName: _jsxFileName, lineNumber: 100}}
+        , React.createElement('a', { href: "/~chess", __self: this, __source: {fileName: _jsxFileName, lineNumber: 101}}, "Back")
       )
-      , React.createElement('div', { id: "board", style: { width: "400px" }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 96}})
+      , React.createElement('div', { id: "board", style: { width: "400px" }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 103}})
     )
     );
   }

@@ -20,7 +20,7 @@ export default class App extends Component {
   render() {
     return (
        <BrowserRouter>
-        <div>
+         <div>
           <Route exact path="/~chess" 
             render={ (props) => {
               return <List {...props} list={this.state.list} />
@@ -35,3 +35,4 @@ export default class App extends Component {
   }
 }
 
+window.app = App;

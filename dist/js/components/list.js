@@ -1,4 +1,4 @@
-const _jsxFileName = "/Users/logan/Dev/chess/src/js/components/list.js";import React, { Component } from 'react';
+const _jsxFileName = "/Users/logan/Dev/apps/chess/src/js/components/list.js";import React, { Component } from 'react';
 import { subscription } from '/subscription';
 import { api } from '/lib/api';
 
